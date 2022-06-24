@@ -1,0 +1,53 @@
+name: reviewdog
+on: [pull_request]
+jobs:
+  misspell:
+    name: runner / misspell
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: misspell
+        uses: reviewdog/action-misspell@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          locale: "US"
+  textlint:
+    strategy:
+      matrix:
+        reporter: [github-pr-check, github-check, github-pr-review]
+    name: runner / textlint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node/npm
+        uses: actions/setup-node@v1
+      - name: Install textlint
+        run: npm install textlint
+      - name: textlint-github-pr-check
+        uses: tsuyoshicho/action-textlint@v3
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: ${{ matrix.reporter }}
+          textlint_flags: "**"
+  shellcheck:
+    name: runner / shellcheck
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        reporter: [github-pr-check, github-check, github-pr-review]
+    steps:
+      - uses: actions/checkout@v2
+      - name: shellcheck
+        uses: reviewdog/action-shellcheck@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: ${{ matrix.reporter }}
+          path: "." # Optional.
+          pattern: "*.sh" # Optional.
+          exclude: "./.git/*" # Optional.
+          check_all_files_with_shebangs: "false" # Optional.
+  actionlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: reviewdog/action-actionlint@v1
