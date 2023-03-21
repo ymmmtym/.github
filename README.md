@@ -20,3 +20,4 @@ Add following values to `renovate.json` extends.
 {
     "extends": ["github>ymmmtym/.github"]
 }
+```
