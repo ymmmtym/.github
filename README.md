@@ -2,11 +2,13 @@
 
 Template files.
 
-- README
-- Issue
-- Pull Request
+- [README.md](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
+- [Issues](https://docs.github.com/en/issues)
+- [Pull requests](https://docs.github.com/en/pull-requests)
 - Contributing
-- Renovate
+- [pre-commit](https://pre-commit.com/)
+- [Renovate](https://www.mend.io/free-developer-tools/renovate/)
+    - `default.json`
 
 ## Renovate
 
@@ -18,4 +20,3 @@ Add following values to `renovate.json` extends.
 {
     "extends": ["github>ymmmtym/.github"]
 }
-
