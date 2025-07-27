@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup node/npm
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
       - name: Install textlint
         run: npm install textlint
       - name: textlint-github-pr-check
