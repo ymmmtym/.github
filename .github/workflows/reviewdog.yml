@@ -5,7 +5,7 @@ jobs:
     name: runner / misspell
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
       - name: misspell
         uses: reviewdog/action-misspell@v1
         with:
@@ -18,7 +18,7 @@ jobs:
     name: runner / textlint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
       - name: Setup node/npm
         uses: actions/setup-node@v1
       - name: Install textlint
@@ -36,7 +36,7 @@ jobs:
       matrix:
         reporter: [github-pr-check, github-check, github-pr-review]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
       - name: shellcheck
         uses: reviewdog/action-shellcheck@v1
         with:
@@ -49,5 +49,5 @@ jobs:
   actionlint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
       - uses: reviewdog/action-actionlint@v1
