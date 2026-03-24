@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allowed_directories": ["."],
+    "allow": ["Read", "Glob", "Grep", "Bash", "Git", "Edit", "Write", "TaskList"]
+  },
+  "language": "japanese"
+}
