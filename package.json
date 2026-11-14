@@ -1,0 +1,11 @@
+{
+  "name": "github-templates",
+  "private": true,
+  "scripts": {
+    "lint:text": "textlint '**'"
+  },
+  "devDependencies": {
+    "textlint": "^15.8.0",
+    "textlint-rule-no-zero-width-spaces": "1.0.1"
+  }
+}
