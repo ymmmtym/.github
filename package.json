@@ -5,7 +5,7 @@
     "lint:text": "textlint '**'"
   },
   "devDependencies": {
-    "textlint": "^15.8.0",
+    "textlint": "^16.0.0",
     "textlint-rule-no-zero-width-spaces": "1.0.1"
   }
 }
