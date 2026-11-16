@@ -1,26 +1,29 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", "schedule:daily", ":timezone(Asia/Tokyo)"],
+  "extends": [
+    "config:recommended",
+    "schedule:daily",
+    ":timezone(Asia/Tokyo)"
+  ],
   "labels": ["renovate"],
-  "dependencyDashboard": true,
-  // "automerge": true,
+  "dependencyDashboard": {
+    "enabled": true
+  },
+  "automerge": true,
+  "automergeType": "pr",
+  "assignAutomerge": true,
+  "reviewers": ["ymmmtym"],
   "rangeStrategy": "auto",
   "packageRules": [
     {
       "matchDepTypes": ["devDependencies"],
       "groupName": "devDependencies",
-      "rangeStrategy": "update-lockfile",
-      "automerge": "true"
+      "rangeStrategy": "update-lockfile"
     },
     {
       "matchDepTypes": ["dependencies"],
       "matchUpdateTypes": ["minor", "patch"],
-      "groupName": "dependencies",
-      "rangeStrategy": "pin"
-    },
-    {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
+      "groupName": "dependencies"
     }
   ]
 }

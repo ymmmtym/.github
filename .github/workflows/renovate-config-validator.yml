@@ -1,0 +1,31 @@
+name: Validate Renovate config
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'default.json'
+      - 'renovate-config.json'
+      - 'renovate.json'
+      - '.github/renovate.json'
+      - '.github/renovate.json5'
+      - '.github/workflows/renovate-config-validator.yml'
+  pull_request:
+    paths:
+      - 'default.json'
+      - 'renovate-config.json'
+      - 'renovate.json'
+      - '.github/renovate.json'
+      - '.github/renovate.json5'
+      - '.github/workflows/renovate-config-validator.yml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.4.0
+
+      - name: Validate Renovate config
+        run: npx --yes --package renovate -- renovate-config-validator --strict default.json renovate-config.json
