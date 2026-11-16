@@ -4,7 +4,7 @@
     "config:recommended",
     ":timezone(Asia/Tokyo)",
     ":prHourlyLimitNone",
-    ":automergePatch"
+    ":automergeAll"
   ],
   // "schedule": ["after 9am on monday", "before 12am on monday"],
   "dependencyDashboard": true,
