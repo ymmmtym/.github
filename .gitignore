@@ -1,4 +1,5 @@
 .gemini/
+.openhands/
 gha-creds-*.json
 
 node_modules/

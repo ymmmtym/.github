@@ -1,56 +1,40 @@
 # .github
 
-Template files.
+`ymmmtym` のリポジトリ共通デフォルト設定です。
 
-- [README.md](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
-- [Issues](https://docs.github.com/en/issues)
-- [Pull requests](https://docs.github.com/en/pull-requests)
-- Contributing
-- [pre-commit](https://pre-commit.com/)
-- [Renovate](https://www.mend.io/free-developer-tools/renovate/)
-    - `default.json`
+コピーして使うテンプレート集ではありません。各リポジトリが「継承」または
+「機械検証」で利用する設定だけを置いています。
 
-## Claude Code
+## 内容
 
-このリポジトリにはClaude Codeのプロジェクト設定テンプレートが含まれています。
+### Renovate shared preset
 
-### 使い方
-
-新規プロジェクトで以下のコマンドを実行：
-
-```bash
-cd 新規プロジェクトディレクトリ
-cp -r ~/.ghq/github.com/ymmmtym/.github/.claude .
-```
-
-または、`.claude/settings.json` のみ必要な場合：
-
-```bash
-mkdir -p .claude
-cp ~/.ghq/github.com/ymmmtym/.github/.claude/settings.json .claude/
-```
-
-設定ファイルが有効になるのは、`.claude/` をプロジェクトルートに配置した後、`claude` コマンドを実行したときです。
-
-### 現在のテンプレート状態（ひよこ → ムキムキ計画）
-
-- ✅ `settings.json` - 基本権限設定
-- ✅ `instructions.md` - 開発ルール（日本語対応）
-- ✅ `memory/` - 共有知識（team-rules, api-reference, troubleshooting）
-- ⏳ `hooks/` - 自動化フック（予定）
-- ⏳ 環境別設定（dev/staging/prod）（予定）
-- ⏳ MCPサーバー設定例（予定）
-
-順次拡張予定。要望があればIssue起票 or PR投下！
-
-## Renovate
-
-### Usage
-
-Add following values to `renovate.json` extends.
+`default.json` を各リポジトリの `renovate.json` から継承させます。
 
 ```json
 {
     "extends": ["github>ymmmtym/.github"]
 }
 ```
+
+### GitHub Actions dependency lockfile
+
+`.github/workflows/actions.lock` がワークフローの `uses:` を検証済みコミットに固定します。
+`Verify Actions lockfile` ワークフローが PR と `main` への push で検証を実行します。
+更新・検証の手順は [.github/ACTIONS_LOCK.md](.github/ACTIONS_LOCK.md) を参照してください。
+
+### Issue templates
+
+`.github/ISSUE_TEMPLATE/` に bug report / feature request / custom を配置しています。
+
+## 参考
+
+- [README](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
+- [Issues](https://docs.github.com/en/issues)
+- [Pull requests](https://docs.github.com/en/pull-requests)
+- [Renovate](https://www.mend.io/free-developer-tools/renovate/)
+- [gh-actions-lock](https://github.com/github/gh-actions-lock)
+
+## エージェント向け
+
+このリポジトリで作業する AI エージェントは [AGENTS.md](AGENTS.md) を参照してください。
