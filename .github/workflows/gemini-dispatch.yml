@@ -128,6 +128,7 @@ jobs:
     if: |-
       ${{ needs.dispatch.outputs.command == 'review' }}
     uses: './.github/workflows/gemini-review.yml'
+    cache-mode: 'read'
     permissions:
       contents: 'read'
       id-token: 'write'
@@ -142,6 +143,7 @@ jobs:
     if: |-
       ${{ needs.dispatch.outputs.command == 'triage' }}
     uses: './.github/workflows/gemini-triage.yml'
+    cache-mode: 'read'
     permissions:
       contents: 'read'
       id-token: 'write'
@@ -156,6 +158,7 @@ jobs:
     if: |-
       ${{ needs.dispatch.outputs.command == 'invoke' }}
     uses: './.github/workflows/gemini-invoke.yml'
+    cache-mode: 'read'
     permissions:
       contents: 'read'
       id-token: 'write'

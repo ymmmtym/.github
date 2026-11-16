@@ -20,6 +20,7 @@ permissions:
 jobs:
   call-openhands-resolver:
     uses: OpenHands/OpenHands/.github/workflows/openhands-resolver.yml@main
+    cache-mode: 'read'
     with:
       macro: ${{ vars.OPENHANDS_MACRO || '@openhands-agent' }}
       max_iterations: ${{ fromJson(vars.OPENHANDS_MAX_ITER || 50) }}
