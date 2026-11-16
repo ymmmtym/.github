@@ -1,12 +1,4 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended",
-    ":timezone(Asia/Tokyo)",
-    ":prHourlyLimitNone",
-    ":automergeAll"
-  ],
-  // "schedule": ["after 9am on monday", "before 12am on monday"],
-  "dependencyDashboard": true,
-  "ignorePaths": []
+  "extends": ["github>ymmmtym/.github"]
 }
