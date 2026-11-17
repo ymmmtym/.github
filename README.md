@@ -23,9 +23,25 @@
 `Verify Actions lockfile` ワークフローが PR と `main` への push で検証を実行します。
 更新・検証の手順は [.github/ACTIONS_LOCK.md](.github/ACTIONS_LOCK.md) を参照してください。
 
-### Issue templates
+### デフォルトコミュニティヘルスファイル
 
-`.github/ISSUE_TEMPLATE/` に bug report / feature request / custom を配置しています。
+`.github` リポジトリ（public）に置くと、独自ファイルを持たない全リポジトリへ継承されます。
+
+- `.github/ISSUE_TEMPLATE/` — bug report / feature request / custom と `config.yml`
+  （`config.yml` は Security への導線を `contact_links` に追加）
+- `SECURITY.md` — 脆弱性報告ポリシー
+
+継承されたファイルは各リポジトリのファイル一覧・Git 履歴・clone には含まれません。
+
+### 再利用可能ワークフロー
+
+`.github/workflows/reusable-verify-actions-lock.yml` は他リポジトリから呼び出せます。
+
+```yaml
+jobs:
+  verify:
+    uses: ymmmtm/.github/.github/workflows/reusable-verify-actions-lock.yml@main
+```
 
 ## 参考
 
