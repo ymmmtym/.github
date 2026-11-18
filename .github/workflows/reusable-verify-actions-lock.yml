@@ -1,0 +1,31 @@
+name: Verify Actions lockfile (reusable)
+
+# 他リポジトリから呼び出せる再利用可能ワークフロー。
+# 呼び出し例:
+#   jobs:
+#     verify:
+#       uses: ymmmtym/.github/.github/workflows/reusable-verify-actions-lock.yml@main
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install actions-lock
+        run: gh extension install github/gh-actions-lock --pin v0.4.1
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Verify workflow dependencies
+        run: gh actions-lock --verify
+        env:
+          GH_TOKEN: ${{ github.token }}

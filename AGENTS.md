@@ -13,9 +13,19 @@
 - `renovate.json` — このリポジトリ自身の Renovate 設定。
 - `.github/workflows/actions.lock` — ワークフロー依存の機械生成 lockfile。
 - `.github/workflows/verify-actions-lock.yml` — PR と `main` への push で lockfile を検証。
+- `.github/workflows/reusable-verify-actions-lock.yml` — 他リポジトリから呼べる再利用可能版。
 - `.github/ACTIONS_LOCK.md` — lockfile の更新・検証手順。
-- `.github/ISSUE_TEMPLATE/` — Issue テンプレート。
+- `.github/ISSUE_TEMPLATE/` — Issue テンプレートと `config.yml`。
+- `SECURITY.md` — デフォルトのセキュリティポリシー（全リポジトリへ継承）。
 - `README.md` — リポジトリ概要。
+
+## 継承の仕組み
+
+- ルート直下および `.github/` の一部ファイル（`SECURITY.md` など）は
+  **デフォルトコミュニティヘルスファイル**として、独自ファイルを持たない全リポジトリへ継承される。
+- `default.json` は Renovate の shared preset として継承される。
+- 継承されたファイルは各リポジトリの Git 履歴には現れない。
+- `CODEOWNERS` と `dependabot.yml` は継承できない。各リポジトリに個別配置が必要。
 
 ## ルール
 

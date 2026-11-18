@@ -7,7 +7,16 @@ assignees: ''
 
 ---
 
+<!-- coderabbit-ai-generated:v1 -->
+
+<!-- coderabbit-ai-generated-section:v1:87d30e7fbd641548fe5154183715b9d6a502610b2cbdbc7607cff6b68a550058 -->
+
+脆弱性は公開 Issue に記載せず、対象リポジトリの **Security タブ → Security policy**
+で報告方法を確認してください。独自の `SECURITY.md` がある場合は、そちらが優先されます。
+
 **Describe the bug**
+
+<!-- /coderabbit-ai-generated:v1 -->
 A clear and concise description of what the bug is.
 
 **To Reproduce**
