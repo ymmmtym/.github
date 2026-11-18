@@ -28,8 +28,16 @@
 `.github` リポジトリ（public）に置くと、独自ファイルを持たない全リポジトリへ継承されます。
 
 - `.github/ISSUE_TEMPLATE/` — bug report / feature request / custom と `config.yml`
-  （`config.yml` は Security への導線を `contact_links` に追加）
 - `SECURITY.md` — 脆弱性報告ポリシー
+
+<!-- coderabbit-ai-generated:v1 -->
+
+<!-- coderabbit-ai-generated-section:v1:7a76c16ca74d4d7976a643ea6cefeccbbf6a1c1e8fa046de50e31f6d7f48dd2e -->
+
+脆弱性の報告は対象リポジトリの **Security タブ → Security policy** を確認してください。
+独自のポリシーが優先されるため、共通の `config.yml` に固定のポリシーリンクは置きません。
+
+<!-- /coderabbit-ai-generated:v1 -->
 
 継承されたファイルは各リポジトリのファイル一覧・Git 履歴・clone には含まれません。
 
@@ -37,11 +45,17 @@
 
 `.github/workflows/reusable-verify-actions-lock.yml` は他リポジトリから呼び出せます。
 
+<!-- coderabbit-ai-generated:v1 -->
+
+<!-- coderabbit-ai-generated-section:v1:b8fef1e960e841951f563b2be3e0c69f78609504731c04bd1edc62076c4fe172 -->
+
 ```yaml
 jobs:
   verify:
-    uses: ymmmtm/.github/.github/workflows/reusable-verify-actions-lock.yml@main
+    uses: ymmmtym/.github/.github/workflows/reusable-verify-actions-lock.yml@main
 ```
+
+<!-- /coderabbit-ai-generated:v1 -->
 
 ## 参考
 

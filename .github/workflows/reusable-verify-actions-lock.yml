@@ -4,7 +4,7 @@ name: Verify Actions lockfile (reusable)
 # 呼び出し例:
 #   jobs:
 #     verify:
-#       uses: ymmmtm/.github/.github/workflows/reusable-verify-actions-lock.yml@main
+#       uses: ymmmtym/.github/.github/workflows/reusable-verify-actions-lock.yml@main
 
 on:
   workflow_call:
