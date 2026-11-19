@@ -11,7 +11,7 @@
   },
   "automerge": true,
   "automergeType": "pr",
-  "platformAutomerge": false,
+  "platformAutomerge": true,
   "assignAutomerge": true,
   "reviewers": ["ymmmtym"],
   "rangeStrategy": "auto",
