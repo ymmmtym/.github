@@ -50,6 +50,20 @@
 - PR 説明は日本語でよい。変更点を明確に書く。
 - ブランチ名は `feature/`、`fix/`、`docs/`、`chore/` プレフィックスを使う。
 
+### Renovate のローカル実行
+
+- `renovate --print-config` はドライランではない。書き込みを止めるのは `--dry-run` だけ。
+- `--print-config` 単体で実行すると、自分のトークン名義の "Dependency Dashboard" が重複して作られる。
+  既存の Dashboard は `app/renovate` 名義なので、作成者フィルタに掛かって見つからない。
+- ローカルで実行する場合は `--dry-run=full` を必ず付け、必要なら `--ignore-pr-author` も付ける。
+
+  ```sh
+  RENOVATE_REPOSITORIES=ymmmtym/.github RENOVATE_IGNORE_PR_AUTHOR=true \
+    npx --yes --package renovate -- renovate --print-config --dry-run=full
+  ```
+
+- 書き込み無しで足りる設定検証は `renovate-config-validator` を使う（CI と同じ）。
+
 ### 言語
 
 - ドキュメントと PR 説明は日本語でよい。技術用語は英語のままにする。

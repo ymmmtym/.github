@@ -17,6 +17,22 @@
 }
 ```
 
+### 解決済み Renovate 設定の確認
+
+`renovate --print-config` はドライランではありません。単体で実行すると設定を表示しつつ
+リポジトリへ書き込み、`app/renovate` 名義の Dashboard を見つけられず自分のトークン名義の
+"Dependency Dashboard" を重複作成します。
+
+`--dry-run=full` を必ず付けます。`--ignore-pr-author` を併用すると既存 Issue を
+作成者で絞り込まずに探すため、より安全です。
+
+```sh
+RENOVATE_REPOSITORIES=ymmmtym/.github RENOVATE_IGNORE_PR_AUTHOR=true \
+  npx --yes --package renovate -- renovate --print-config --dry-run=full > config.log
+```
+
+書き込みが不要な設定検証は CI と同じ `renovate-config-validator` で足ります。
+
 ### GitHub Actions dependency lockfile
 
 `.github/workflows/actions.lock` がワークフローの `uses:` を検証済みコミットに固定します。
